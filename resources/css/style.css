@@ -1,3 +1,7 @@
+html {
+    scroll-behavior: smooth;
+}
+
 .header{
     margin: 10px 10px;
 }
@@ -314,6 +318,36 @@
     box-shadow: 0 2px 4px rgba(48, 166, 224, 0.2);
 }
 
+.button:disabled {
+    opacity: 0.7;
+    cursor: wait;
+    transform: none;
+}
+
+.form-status {
+    min-height: 1.2em;
+    margin-top: 10px;
+    font-weight: 600;
+    color: rgb(23, 43, 55);
+}
+
+.form-status.success {
+    color: rgb(25, 135, 84);
+}
+
+.form-status.error {
+    color: rgb(220, 53, 69);
+}
+
+.form input:invalid {
+    border-color: rgb(220, 53, 69);
+}
+
+.form input:focus {
+    outline: 2px solid rgba(48, 166, 224, 0.25);
+    border-color: rgb(48, 166, 224);
+}
+
 .inform{
     margin:10px 120px;
     display: flex;
@@ -371,9 +405,10 @@
 .bbtn button{
     padding:15px 105px;
     background-color: aliceblue;
-    font-size: 1 rem;
-    font-weight: 10px;
+    font-size: 1rem;
+    font-weight: 600;
     color: rgb(6, 195, 247);
+    cursor: pointer;
 }
 
 .foot{

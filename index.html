@@ -66,27 +66,27 @@
                     <ul class="llist">
                          <li>
                             <div><ion-icon class="ion" name="shirt-outline"></ion-icon>Dry Cleaning - <span>$20.00</span></div>
-                            <button id="btn dry" class="add-to-cart">Add Item <ion-icon class="icon" name="add-circle-outline"></ion-icon></button>
+                            <button id="btn-dry" class="add-to-cart">Add Item <ion-icon class="icon" name="add-circle-outline"></ion-icon></button>
                         </li>
                         <li>
                             <div><ion-icon class="ion" name="bag-handle-outline"></ion-icon>Wash & Fold - <span>$10.00</span></div>
-                            <button id="btn wash" class="add-to-cart">Add Item <ion-icon class="icon" name="add-circle-outline"></ion-icon></button>
+                            <button id="btn-wash" class="add-to-cart">Add Item <ion-icon class="icon" name="add-circle-outline"></ion-icon></button>
                         </li>
                         <li>
                             <div><ion-icon class="ion" name="flash-outline"></ion-icon>Ironing - <span>$30.00</span></div>
-                            <button id="btn iron" class="add-to-cart">Add Item <ion-icon class="icon" name="add-circle-outline"></ion-icon></button>
+                            <button id="btn-iron" class="add-to-cart">Add Item <ion-icon class="icon" name="add-circle-outline"></ion-icon></button>
                         </li>
                         <li>
                             <div><ion-icon class="ion" name="browsers-outline"></ion-icon>Stain Removal - <span>$50.00</span></div>
-                            <button id="btn stain" class="add-to-cart">Add Item <ion-icon class="icon" name="add-circle-outline"></ion-icon></button>
+                            <button id="btn-stain" class="add-to-cart">Add Item <ion-icon class="icon" name="add-circle-outline"></ion-icon></button>
                         </li>
                         <li>
                             <div><ion-icon class="ion" name="briefcase-outline"></ion-icon>Leather & Suede Cleaning - <span>$100.00</span></div>
-                            <button id="btn leather" class="add-to-cart">Add Item<ion-icon class="icon" name="add-circle-outline"></ion-icon></button>
+                            <button id="btn-leather" class="add-to-cart">Add Item<ion-icon class="icon" name="add-circle-outline"></ion-icon></button>
                         </li>
                         <li>
                             <div><ion-icon class="ion" name="man-outline"></ion-icon>Wedding Dress Cleaning - <span>$200.00</span></div>
-                            <button id="btn wedding" class="add-to-cart">Add Item <ion-icon class="icon" name="add-circle-outline"></ion-icon></button>
+                            <button id="btn-wedding" class="add-to-cart">Add Item <ion-icon class="icon" name="add-circle-outline"></ion-icon></button>
                         </li>
                     </ul>
                 </div>
@@ -114,28 +114,28 @@
                 </table>
                 <div class="amount">
                     <h3>Total Amount  </h3>
-                    <h3>$0</h3>
+                    <h3 id="cart-total">$0</h3>
                 </div>
             </div>
             <div>
-                <form class="form">
+                <form class="form" id="booking-form" novalidate>
                     <div class="name">
                         <h3>Name:</h3>
-                        <input type="text" placeholder="Full Name">
+                        <input type="text" id="customer-name" name="user_name" placeholder="Full Name" autocomplete="name" required>
                     </div>
                     <div class="enum">
                         <div class="email">
                             <h3>Email:</h3>
-                             <input type="email" placeholder="Enter Email">
+                            <input type="email" id="customer-email" name="user_email" placeholder="Enter Email" autocomplete="email" required>
                         </div>
                         <div class="email">
                             <h3>Phone Number:</h3>
-                            <input type="number" placeholder="Enter Number">
+                            <input type="tel" id="customer-phone" name="user_phone" placeholder="Enter Number" autocomplete="tel" required>
                         </div>
                     </div>
                     <div id="book">
-                        <button id="button" class="button">Book Now</button>
-                        <p id="booked"></p>
+                        <button id="button" class="button" type="submit">Book Now</button>
+                        <p id="booking-status" class="form-status" role="status" aria-live="polite"></p>
                     </div>
                 </form>
             </div>
@@ -171,13 +171,14 @@
         <div>
             <h2>Subscribe to our newsletter</h2>
         </div>
-        <div class="bbtn">
+        <form class="bbtn" id="newsletter-form" novalidate>
             <div>
-                <input type="text" placeholder="Name">
-                <input type="email" placeholder="Email">
+                <input type="text" id="newsletter-name" name="newsletter_name" placeholder="Name" autocomplete="name" required>
+                <input type="email" id="newsletter-email" name="newsletter_email" placeholder="Email" autocomplete="email" required>
             </div>
-            <button>Subscribe</button>
-        </div>
+            <button type="submit">Subscribe</button>
+            <p id="newsletter-status" class="form-status" role="status" aria-live="polite"></p>
+        </form>
     </section>
 
     <footer class="foot">
@@ -219,6 +220,7 @@
 
     <script type="module" src="https://unpkg.com/ionicons@8.0.13/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@8.0.13/dist/ionicons/ionicons.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
