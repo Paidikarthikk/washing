@@ -14,6 +14,20 @@ const EMAILJS_PUBLIC_KEY = emailConfig.publicKey || "YOUR_PUBLIC_KEY";
 const EMAILJS_SERVICE_ID = emailConfig.serviceId || "YOUR_SERVICE_ID";
 const EMAILJS_TEMPLATE_ID = emailConfig.templateId || "YOUR_TEMPLATE_ID";
 
+function setButtonState(button, isActive) {
+    if (!button) return;
+    button.classList.toggle("is-active", isActive);
+    button.setAttribute("aria-pressed", String(isActive));
+
+    if (isActive) {
+        button.innerHTML = 'Remove Item <ion-icon name="remove-circle-outline"></ion-icon>';
+        button.style.backgroundColor = "rgb(220, 53, 69)";
+    } else {
+        button.innerHTML = 'Add Item <ion-icon name="add-circle-outline"></ion-icon>';
+        button.style.backgroundColor = "";
+    }
+}
+
 function isEmailJSConfigured() {
     return EMAILJS_PUBLIC_KEY && !EMAILJS_PUBLIC_KEY.includes("YOUR_") && EMAILJS_SERVICE_ID && !EMAILJS_SERVICE_ID.includes("YOUR_") && EMAILJS_TEMPLATE_ID && !EMAILJS_TEMPLATE_ID.includes("YOUR_");
 }
@@ -100,8 +114,7 @@ function clearCart() {
     cartitem.innerHTML = "";
     updateTotal();
     addButtons.forEach(btn => {
-        btn.innerHTML = 'Add Item <ion-icon name="add-circle-outline"></ion-icon>';
-        btn.style.backgroundColor = "";
+        setButtonState(btn, false);
     });
 }
 
@@ -139,8 +152,9 @@ addButtons.forEach(function(btn) {
         const pricePart = serviceDiv.querySelector("span").innerText;
         const serviceName = fullText.replace(pricePart, "").trim().replace(" - ", "");
         const price = parseFloat(pricePart.replace("$", ""));
+        const isActive = btn.classList.contains("is-active");
 
-        if (btn.innerText.includes("Add Item")) {
+        if (!isActive) {
             const item = {
                 id: btn.id,
                 name: serviceName,
@@ -149,8 +163,7 @@ addButtons.forEach(function(btn) {
             };
             cartArray.push(item);
             serialNo++;
-            btn.innerHTML = 'Remove Item <ion-icon name="remove-circle-outline"></ion-icon>';
-            btn.style.backgroundColor = "rgb(220, 53, 69)";
+            setButtonState(btn, true);
             addRowToTable(item);
             updateTotal();
         } else {
@@ -162,8 +175,7 @@ addButtons.forEach(function(btn) {
                 removeRowFromTable(btn.id);
                 updateSerialNumbers();
             }
-            btn.innerHTML = 'Add Item <ion-icon name="add-circle-outline"></ion-icon>';
-            btn.style.backgroundColor = "";
+            setButtonState(btn, false);
             updateTotal();
         }
     });
@@ -198,8 +210,11 @@ if (bookingForm) {
                 total: cartArray.reduce((sum, item) => sum + item.price, 0).toFixed(2)
             };
 
-            await sendBookingEmail(bookingDetails);
-            setStatus(bookingStatus, `Thank you, ${bookingDetails.name}! Your booking request has been received and a confirmation email is being prepared.`, "success");
+            const result = await sendBookingEmail(bookingDetails);
+            const successMessage = result && result.skipped
+                ? `Thank you, ${bookingDetails.name}! Your booking request has been received. EmailJS is not configured yet, so the confirmation email will be sent once you add your credentials.`
+                : `Thank you, ${bookingDetails.name}! Your booking request has been received and a confirmation email is on its way.`;
+            setStatus(bookingStatus, successMessage, "success");
             bookingForm.reset();
             clearCart();
         } catch (error) {
@@ -222,7 +237,8 @@ if (newsletterForm) {
             return;
         }
 
-        setStatus(newsletterStatus, "Thanks for subscribing! We will send updates soon.", "success");
+        const subscriberName = document.getElementById("newsletter-name").value.trim();
+        setStatus(newsletterStatus, `Thanks for subscribing, ${subscriberName}! Updates are on the way.`, "success");
         newsletterForm.reset();
     });
 }
