@@ -1,8 +1,8 @@
-const cartitem=document.getElementById("cart-item");
+const cartitem=document.getElementById("cart-items");
 const cartarray=[];
 let serialno=1;
 
-const addtobtn=document.querySelectorAll("#add-to-cart");
+const addtobtn=document.querySelectorAll(".add-to-cart");
 const booknow=document.getElementById("book-now");
 
 addtobtn.forEach((btn)=>{
@@ -11,7 +11,7 @@ addtobtn.forEach((btn)=>{
         const servicePrice=e.target.parentElement.querySelector("span").innerText;
         if(btn.innerText.includes("Add item")){
             const cartobj={
-                id:btn.id,
+                id:"item"+index,
                 serial:serialno,
                 name:serviceName,
                 price:servicePrice
@@ -25,7 +25,7 @@ addtobtn.forEach((btn)=>{
             booknoww();
         }
         else{
-            const itemToRemove=cartarray.findIndex(cartobj => cartobj.id===btn.id);
+            const itemToRemove=cartarray.findIndex(cartobj => cartobj.id==="item"+index);
             if(itemToRemove!==-1){
                 cartarray.splice(itemToRemove,1);
                 serialno--;
@@ -51,7 +51,7 @@ function addRowToTable(cartobj){
     cartitem.appendChild(row);
 }
 
-function RemoveRowFromTable(id){
+function RemoveRowFromTable("item"+index){
     const row=document.getElementById(id);
     if(row){
         cartitem.removeChild(row);
