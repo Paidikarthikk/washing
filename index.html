@@ -11,20 +11,20 @@
     <header class="flex justify-between items-center px-8 md:px-40 py-10">
         <div class="text-2xl font-bold text-gray-600">Logo</div>
         <nav class="hidden md:flex items-center gap-10 text-gray-400 font-medium">
-            <a href="#" class=" border-b-3 border-transparent pb-1 hover:border-blue-400">Home</a>
-            <a href="#" class=" border-b-3 border-transparent pb-1 hover:border-blue-400">Services</a>
-            <a href="#" class="border-b-3 border-transparent pb-1 hover:border-blue-400">About</a>
-            <a href="#" class=" border-b-3 border-transparent pb-1 hover:border-blue-400">Contact</a>
+            <a href="#home" class=" border-b-3 border-transparent pb-1 hover:border-blue-400">Home</a>
+            <a href="#cart" class=" border-b-3 border-transparent pb-1 hover:border-blue-400">Services</a>
+            <a href="#about" class="border-b-3 border-transparent pb-1 hover:border-blue-400">About</a>
+            <a href="#contact" class=" border-b-3 border-transparent pb-1 hover:border-blue-400">Contact</a>
         </nav>
         <button class="border-solid border-1 border-transparent bg-blue-100 p-3 rounded-md text-blue-500 font-bold cursor-pointer hover:bg-blue-300 transition-colors duration-300">Username</button>
     </header>
 
-    <section class="md:flex justify-between px-8 md:px-40 py-10 mb-10">
+    <section  class="md:flex justify-between px-8 md:px-40 py-10 mb-10">
         <div class="md:w-1/2">
             <h2 class="text-6xl font-bold text-gray-600 mb-2">Revitalise Your Clothes With Experts</h2>
             <h3 class="text-6xl font-bold text-blue-400 mb-3">Laundry Services!</h3>
             <p class="text-1xl w-4/5 text-gray-400 mb-5" >From premium dry cleaning to swift wash and fold we deliver care and convineence. Shedule a pickup and rediscover the freshness of your clothes today!.  </p>
-            <button class="border-solid border-1 border-transparent bg-blue-400 px-20 py-5 text-white rounded-2xl hover:bg-blue-500 transition-colors duration-300 cursor-pointer">Book a service today!</button>
+            <button onclick="document.getElementById('cart').scrollIntoView({behavior: 'smooth'})" class="border-solid border-1 border-transparent bg-blue-400 px-20 py-5 text-white rounded-2xl hover:bg-blue-500 transition-colors duration-300 cursor-pointer">Book a service today!</button>
         </div>
         <div class="md:w-1/2">
             <img class="w-full h-100"src="washing.webp" alt="washing machine">
@@ -48,7 +48,7 @@
         </div>
     </section>
 
-    <section class="bg-gray-300 flex flex-col md:flex-row gap-1 px-4 md:px-40 py-10 mb-10">
+    <section id="cart" class="bg-gray-300 flex flex-col md:flex-row gap-1 px-4 md:px-40 py-10 mb-10">
         <div class="bg-white w-full md:w-xl border-solid rounded-2xl m-0 md:m-15 p-5 md:p-10">
             <h2 class="text-2xl font-bold text-gray-600 mb-0">Our Services</h2>
             <p class="text-gray-500 border-b-2 border-gray-300 pb-7">Click on the add to cart button to add service to your cart</p>
@@ -171,7 +171,7 @@
         </div>
 
     </section>
-    <section class="inform bg-white flex flex-col md:flex-row gap-3 px-4 md:px-40 py-10 mb-10">
+    <section id="about" class="inform bg-white flex flex-col md:flex-row gap-3 px-4 md:px-40 py-10 mb-10">
         <div class="cards">
             <img src="image1.png" alt="wash" class="image px-10">
             <h3 class="text-xl font-bold px-6">Premium Service</h3>
@@ -195,7 +195,7 @@
 
     </section>
 
-    <section class="subscribe bg-blue-500 flex flex-col md:flex-row gap-3 px-4 md:px-20 md:m-20 py-8 md:py-10">
+    <section id="contact" class="subscribe bg-blue-500 flex flex-col md:flex-row gap-3 px-4 md:px-20 md:m-20 py-8 md:py-10">
         <div class="w-full md:w-1/2">
             <h2 class="font-bold text-3xl md:text-5xl text-white p-4 md:p-15">Subscribe to our newsletter.</h2>
         </div>
