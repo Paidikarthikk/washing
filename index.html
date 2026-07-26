@@ -171,58 +171,56 @@
         </div>
 
     </section>
-
-     <section class="inform">
+    <section class="inform bg-white flex flex-col md:flex-row gap-3 px-4 md:px-40 py-10 mb-10">
         <div class="cards">
-            <img src="resources/img/image1.png" alt="wash" class="image">
-            <h3>Premium Service</h3>
-            <p>Elevate your wardrobe with our mertuculus dry cleaning, ensuring garments look and feel as good as new</p>
+            <img src="image1.png" alt="wash" class="image px-10">
+            <h3 class="text-xl font-bold px-6">Premium Service</h3>
+            <p class="text-gray-400">Elevate your wardrobe with our mertuculus dry cleaning, ensuring garments look and feel as good as new</p>
         </div>
         <div class="cards">
-            <img src="resources/img/image2.png" alt="wash" class="image">
-            <h3>Quick Support</h3>
-            <p>Elevate your wardrobe with our mertuculus dry cleaning, ensuring garments look and feel as good as new</p>
+            <img src="image2.png" alt="wash" class="image px-10">
+            <h3 class="text-xl font-bold px-6">Quick Support</h3>
+            <p class="text-gray-400">Elevate your wardrobe with our mertuculus dry cleaning, ensuring garments look and feel as good as new</p>
         </div>
         <div class="cards">
-            <img src="resources/img/image3.png" alt="wash" class="image">
-            <h3>Hassel Free Delivery</h3>
-            <p>Elevate your wardrobe with our mertuculus dry cleaning, ensuring garments look and feel as good as new</p>
+            <img src="image3.png" alt="wash" class="image px-10">
+            <h3 class="text-xl font-bold px-6">Hassel Free Delivery</h3>
+            <p class="text-gray-400">Elevate your wardrobe with our mertuculus dry cleaning, ensuring garments look and feel as good as new</p>
         </div>
         <div class="cards">
-            <img src="resources/img/image4.png" alt="wash" class="image">
-            <h3>Affordable Prices</h3>
-            <p>Elevate your wardrobe with our mertuculus dry cleaning, ensuring garments look and feel as good as new</p>
+            <img src="image4.png" alt="wash" class="image px-10">
+            <h3 class="text-xl font-bold px-6">Affordable Prices</h3>
+            <p class="text-gray-400">Elevate your wardrobe with our mertuculus dry cleaning, ensuring garments look and feel as good as new</p>
         </div>
 
     </section>
 
-    <section class="subscribe">
-        <div>
-            <h2>Subscribe to our ne wsletter</h2>
+    <section class="subscribe bg-blue-500 flex flex-col md:flex-row gap-3 px-4 md:m-20 py-10">
+        <div class="w-1/2">
+            <h2 class="font-bold text-5xl text-white p-15">Subscribe to our newsletter.</h2>
         </div>
-        <div class="bbtn">
         <form class="bbtn" id="newsletter-form" novalidate>
-            <div>
-                <input type="text" placeholder="Name">
-                <input type="email" placeholder="Email">
-                <input type="text" id="newsletter-name" name="newsletter_name" placeholder="Name" autocomplete="name" required>
-                <input type="email" id="newsletter-email" name="newsletter_email" placeholder="Email" autocomplete="email" required>
+            <div class="flex flex-col gap-3">
+               <div class="flex gap-2 pt-15">
+                    <input type="text" id="newsletter-name" name="newsletter_name" placeholder="Name" autocomplete="name" required class="p-4 bg-blue-400 flex-1">
+                    <input type="email" id="newsletter-email" name="newsletter_email" placeholder="Email" autocomplete="email" required class="p-4 bg-blue-400 flex-1">
+                </div>
+                <div>
+                    <button type="submit" class="bg-white p-4 px-18">Subscribe</button>
+                    <p id="newsletter-status" class="form-status" role="status" aria-live="polite"></p>
+                </div>
             </div>
-            <button>Subscribe</button>
-        </div>
-            <button type="submit">Subscribe</button>
-            <p id="newsletter-status" class="form-status" role="status" aria-live="polite"></p>
         </form>
     </section>
 
-    <footer class="foot">
+    <footer class="foot flex flex-row gap-50 p-20 bg-gray-200">
         <div>
-            <h2>Logo</h2>
-            <h4>About us</h4>
-            <p>Lorem ipsum dolor sit amet conseter.Sed at congue</p>
+            <h2 class="text-4xl font-bold text-gray-700 pb-7">Logo</h2>
+            <h4 class="text-gray-700 font-semibold">About us</h4>
+            <p class="w-50">Lorem ipsum dolor sit amet conseter.Sed at congue</p>
         </div>
         <div>
-            <h3>Important Links</h3>
+            <h3 class="text-xl font-semibold">Important Links</h3>
             <p>About us</p>
             <p>Contact us</p>
             <p>Private Policy</p>
@@ -230,22 +228,22 @@
             <p>Refund Policy</p>
         </div>
         <div>
-            <h3>Contact</h3>
+            <h3 class="text-xl font-semibold">Contact</h3>
             <p>mail@site.com</p>
             <p>+91 79939 45317</p>
 
         </div>
         <div>
-            <h3>Follow us</h3>
+            <h3 class="text-xl font-semibold pb-2">Follow us</h3>
             <div>
-                <ion-icon name="logo-instagram"></ion-icon>
-                <ion-icon name="logo-facebook"></ion-icon>
-                <ion-icon name="logo-youtube"></ion-icon>
-                <ion-icon name="logo-snapchat"></ion-icon>
+                <ion-icon class="text-2xl" name="logo-instagram"></ion-icon>
+                <ion-icon class="text-2xl" name="logo-facebook"></ion-icon>
+                <ion-icon class="text-2xl" name="logo-youtube"></ion-icon>
             </div>
         </div>
     </footer>
-
+    <script type="module" src="https://unpkg.com/ionicons@8.0.13/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@8.0.13/dist/ionicons/ionicons.js"></script>
     <script src="script.js"></script>
 
 </body>

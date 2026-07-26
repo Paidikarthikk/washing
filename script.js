@@ -137,3 +137,38 @@ bookingform.addEventListener('submit',function(e){
     updatecart();
 });
 
+
+const newsletterform = document.getElementById('newsletter-form');
+const newsletterstatus = document.getElementById('newsletter-status');
+
+newsletterform.addEventListener('submit', function(e) {
+    e.preventDefault();
+    
+    const name = document.getElementById('newsletter-name').value;
+    const email = document.getElementById('newsletter-email').value;
+    
+    if(!name) {
+        newsletterstatus.textContent = 'Please enter the detail';
+        newsletterstatus.classList.add('text-red-500');
+        return;
+    }
+    
+    if(!email) {
+        newsletterstatus.textContent = 'Please enter email';
+        newsletterstatus.classList.add('text-red-500');
+        return;
+    }
+    
+    newsletterstatus.textContent = 'Thank you for subscribing!';
+    newsletterstatus.classList.remove('text-red-500');
+    newsletterstatus.classList.add('text-white', 'font-semibold', 'mt-3');
+    
+    console.log('Newsletter subscription:', { name, email, date: new Date().toLocaleString() });
+    
+    newsletterform.reset();
+    
+    setTimeout(() => {
+        newsletterstatus.textContent = '';
+        newsletterstatus.classList.remove('text-white', 'font-semibold', 'mt-3');
+    }, 5000);
+});
