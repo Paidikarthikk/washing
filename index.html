@@ -8,15 +8,26 @@
 </head>
 <body>
 
-    <header class="flex justify-between items-center px-8 md:px-40 py-10">
+    <header class="relative flex justify-between items-center px-8 md:px-40 py-10">
         <div class="text-2xl font-bold text-gray-600">Logo</div>
         <nav class="hidden md:flex items-center gap-10 text-gray-400 font-medium">
-            <a href="#home" class=" border-b-3 border-transparent pb-1 hover:border-blue-400">Home</a>
-            <a href="#cart" class=" border-b-3 border-transparent pb-1 hover:border-blue-400">Services</a>
+            <a href="#home" class="border-b-3 border-transparent pb-1 hover:border-blue-400">Home</a>
+            <a href="#cart" class="border-b-3 border-transparent pb-1 hover:border-blue-400">Services</a>
             <a href="#about" class="border-b-3 border-transparent pb-1 hover:border-blue-400">About</a>
-            <a href="#contact" class=" border-b-3 border-transparent pb-1 hover:border-blue-400">Contact</a>
+            <a href="#contact" class="border-b-3 border-transparent pb-1 hover:border-blue-400">Contact</a>
         </nav>
-        <button class="border-solid border-1 border-transparent bg-blue-100 p-3 rounded-md text-blue-500 font-bold cursor-pointer hover:bg-blue-300 transition-colors duration-300">Username</button>
+        <button id="mobile-menu-button" class="md:hidden p-3 rounded-md border border-slate-200 text-slate-600 hover:bg-slate-100 transition-colors" aria-expanded="false" aria-controls="mobile-menu" aria-label="Open navigation menu">
+            <span class="block h-0.5 w-6 bg-current mb-1"></span>
+            <span class="block h-0.5 w-6 bg-current mb-1"></span>
+            <span class="block h-0.5 w-6 bg-current"></span>
+        </button>
+        <button class="hidden md:inline-flex border-solid border-1 border-transparent bg-blue-100 p-3 rounded-md text-blue-500 font-bold cursor-pointer hover:bg-blue-300 transition-colors duration-300">Username</button>
+        <nav id="mobile-menu" class="hidden absolute left-0 right-0 top-full mt-2 rounded-b-3xl bg-white shadow-lg border border-slate-200 p-5 md:hidden">
+            <a href="#home" class="block py-3 text-gray-600 hover:text-blue-500">Home</a>
+            <a href="#cart" class="block py-3 text-gray-600 hover:text-blue-500">Services</a>
+            <a href="#about" class="block py-3 text-gray-600 hover:text-blue-500">About</a>
+            <a href="#contact" class="block py-3 text-gray-600 hover:text-blue-500">Contact</a>
+        </nav>
     </header>
 
     <section  class="md:flex justify-between px-8 md:px-40 py-10 mb-10">
@@ -153,19 +164,20 @@
                 <h2 class="text-xl font-semibold mb-5 text-gray-600">Book Now</h2>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-2 md:gap-1">
                     <div class="col-span-1 md:col-span-2">
-                    <label class="text-xs mb-2">Full Name</label>
-                    <input type="text" placeholder="Enter your name" required class="border-solid border-1 border-gray-300 rounded-xl w-full px-2 md:px-1 py-2 md:py-1 mb-3">
+                    <label for="booking-name" class="text-xs mb-2 block">Full Name</label>
+                    <input id="booking-name" name="booking_name" type="text" placeholder="Enter your name" required class="border-solid border-1 border-gray-300 rounded-xl w-full px-2 md:px-1 py-2 md:py-1 mb-3">
                 </div>
                 <div>
-                    <label class="text-xs mb-2">Email ID</label>
-                    <input type="email" placeholder="Email" required class="border-solid border-1 border-gray-300 rounded-xl w-full md:w-40 px-2 md:px-1 py-2 md:py-1">
+                    <label for="booking-email" class="text-xs mb-2 block">Email ID</label>
+                    <input id="booking-email" name="booking_email" type="email" placeholder="Email" required class="border-solid border-1 border-gray-300 rounded-xl w-full md:w-40 px-2 md:px-1 py-2 md:py-1">
                 </div>
                 <div>
-                    <label class="text-xs mb-2">Phone Number</label>
-                    <input type="tel" placeholder="Phone number" required class="border-solid border border-gray-300 rounded-xl w-full px-2 md:px-1 py-2 md:py-1">
+                    <label for="booking-phone" class="text-xs mb-2 block">Phone Number</label>
+                    <input id="booking-phone" name="booking_phone" type="tel" placeholder="Phone number" required class="border-solid border border-gray-300 rounded-xl w-full px-2 md:px-1 py-2 md:py-1">
                 </div>
                 </div>
                 <button id="book-btn" type="submit" disabled class="border-solid border-1 border-transparent bg-blue-400 px-10 md:px-30 py-3 text-white rounded-2xl hover:bg-blue-500 transition-colors duration-300 cursor-pointer mt-5 w-full">Book Now</button>
+                <div id="booking-message" role="status" aria-live="polite" class="text-sm font-medium mt-4"></div>
             </div>
             </form>
         </div>
@@ -244,6 +256,7 @@
     </footer>
     <script type="module" src="https://unpkg.com/ionicons@8.0.13/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@8.0.13/dist/ionicons/ionicons.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
     <script src="script.js"></script>
 
 </body>
